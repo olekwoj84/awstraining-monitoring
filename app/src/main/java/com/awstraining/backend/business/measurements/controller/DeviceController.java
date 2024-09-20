@@ -46,7 +46,7 @@ class DeviceController implements DeviceIdApi {
         final Measurements measurementsResult = new Measurements();
         measurementsResult.measurements(measurements);
         LOGGER.info("AWO 000000000000000 classic log");
-        LOGGER.info("logging a size of retrieveMeasurements '{}'", measurements.size());
+        LOGGER.info("LOGGING a size of retrieveMeasurements '{}'", measurements.size());
         return ResponseEntity.ok(measurementsResult);
     }
 
