@@ -1,6 +1,6 @@
 {
   "family": "backend-task-test",
-  "executionRoleArn": "arn:aws:iam::alewojci-1152:role/backend-ecs-execution-role-eu-north-1",
+  "executionRoleArn": "arn:aws:iam::619071324692:role/backend-ecs-execution-role-eu-north-1",
   "containerDefinitions": [
     {
       "logConfiguration": {
@@ -40,14 +40,14 @@
       ],
       "secrets": [
         {
-          "valueFrom": "<<TODO: set ARN of secrets manager>>",
+          "valueFrom": "arn:aws:secretsmanager:eu-north-1:619071324692:secret:backend-secretsmanager-test-eu-north-1-nVdd5s",
           "name": "SPRING_APPLICATION_JSON"
         }
       ],
       "cpu": 1024,
       "memory": 2048,
       "memoryReservation": 1024,
-      "image": "alewojci-1152.dkr.ecr.eu-north-1.amazonaws.com/backend:latest",
+      "image": "619071324692.dkr.ecr.eu-north-1.amazonaws.com/backend:latest",
       "dockerLabels": {
         "PROMETHEUS_EXPORTER_PORT": "8081",
         "PROMETHEUS_EXPORTER_PATH": "/actuator/prometheus",
@@ -57,7 +57,7 @@
       "name": "backend"
     }
   ],
-  "taskRoleArn": "arn:aws:iam::alewojci-1152:role/backend-ecs-task-role-eu-north-1",
+  "taskRoleArn": "arn:aws:iam::619071324692:role/backend-ecs-task-role-eu-north-1",
   "requiresCompatibilities": [
     "FARGATE"
   ],
