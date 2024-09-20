@@ -39,7 +39,7 @@ services:
     environment:
       - AWS_ACCESS_KEY_ID=dummyAccess
       - AWS_SECRET_ACCESS_KEY=dummySecret
-      - AWS_DEFAULT_REGION=eu-central-1
+      - AWS_DEFAULT_REGION=eu-north-1
     depends_on:
       - dynamodb
 
@@ -53,7 +53,7 @@ services:
     environment:
       - AWS_ACCESS_KEY_ID=dummyAccess
       - AWS_SECRET_ACCESS_KEY=dummySecret
-      - AWS_DEFAULT_REGION=eu-central-1
+      - AWS_DEFAULT_REGION=eu-north-1
     depends_on:
       - dynamodb_migrator
       - dynamodb

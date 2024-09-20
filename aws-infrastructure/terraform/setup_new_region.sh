@@ -7,7 +7,7 @@ source 'wrapper.properties'
 
 # Declare an associative array
 declare -A REGION_TO_HUB=(
-  ["eu-central-1"]="emea"
+  ["eu-north-1"]="emea"
   ["us-east-1"]="us"
   ["cn-north-1"]="cn"
 )
@@ -43,7 +43,7 @@ delete_eks_tfstate_bucket() {
 
 delete_secrets_manager() {
   aws secretsmanager delete-secret \
-      --secret-id backend-secretsmanager-test-eu-central-1 \
+      --secret-id backend-secretsmanager-test-eu-north-1 \
       --force-delete-without-recovery \
     	--profile $PROFILE \
     	--region $REGION || true
@@ -81,12 +81,12 @@ if [ "$#" -lt 5 ]; then
   echo
   echo "example usage: "
   echo
-  echo "$0 setup_new_region.sh ecs backend-test eu-central-1 plan"
+  echo "$0 setup_new_region.sh ecs backend-test eu-north-1 plan"
   echo
   echo "or: "
   echo
-  echo "$0 setup_new_region.sh eks backend-test eu-central-1 apply"
-  echo "$0 setup_new_region.sh eks backend-test eu-central-1 apply -auto-approve"
+  echo "$0 setup_new_region.sh eks backend-test eu-north-1 apply"
+  echo "$0 setup_new_region.sh eks backend-test eu-north-1 apply -auto-approve"
   echo
   echo "Apply will ask for your confirmation after each module."
   exit 1

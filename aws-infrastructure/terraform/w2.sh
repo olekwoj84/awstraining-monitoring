@@ -26,7 +26,7 @@ declare -A PROFILE2ENV
 declare -A REGION2HUB
 
 PROFILE2ENV[backend-test]="test"
-REGION2HUB[eu-central-1]="emea"
+REGION2HUB[eu-north-1]="emea"
 REGION2HUB[us-east-1]="us"
 
 # Load properties file

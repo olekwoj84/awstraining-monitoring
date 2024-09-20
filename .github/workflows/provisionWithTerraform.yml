@@ -66,7 +66,7 @@ jobs:
       - name: Login to monitoring ECR
         if: ${{ inputs.deploymentType == 'ecs' }}
         run: |
-          aws ecr get-login-password --region ${{ env.AWS_REGION }} --profile ${{ env.AWS_PROFILE }} | docker login --username AWS --password-stdin ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com
+          aws ecr get-login-password --region ${{ env.AWS_REGION }} --profile ${{ env.AWS_PROFILE }} | docker login --username AWS --password-stdin ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com
 
       - name: Deploy monitoring base images
         if: ${{ inputs.deploymentType == 'ecs' }}
@@ -76,34 +76,34 @@ jobs:
           echo "Deploying Elasticsearch"
           cd docker-elasticsearch
           docker build -t elasticsearch-custom .
-          docker tag elasticsearch-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:elasticsearch
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:elasticsearch
+          docker tag elasticsearch-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:elasticsearch
+          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:elasticsearch
           cd ..
 
           echo "Deploying Filebeat"
           cd docker-filebeat
           docker build -t filebeat-custom .
-          docker tag filebeat-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:filebeat
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:filebeat
+          docker tag filebeat-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:filebeat
+          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:filebeat
           cd ..
 
           echo "Deploying Grafana"
           cd docker-grafana
           docker build -t grafana-custom .
-          docker tag grafana-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:grafana
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:grafana
+          docker tag grafana-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:grafana
+          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:grafana
           cd ..
 
           echo "Deploying Kibana"
           cd docker-kibana
           docker build -t kibana-custom .
-          docker tag kibana-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:kibana
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:kibana
+          docker tag kibana-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:kibana
+          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:kibana
           cd ..
 
           echo "Deploying Prometheus"
           cd docker-prometheus
           docker build -t prometheus-custom .
-          docker tag prometheus-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:prometheus
-          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-central-1.amazonaws.com/monitoring:prometheus
+          docker tag prometheus-custom ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:prometheus
+          docker push ${{ env.AWS_ACCOUNT }}.dkr.ecr.eu-north-1.amazonaws.com/monitoring:prometheus
           cd ..
