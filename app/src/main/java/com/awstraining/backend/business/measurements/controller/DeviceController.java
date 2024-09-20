@@ -38,12 +38,15 @@ class DeviceController implements DeviceIdApi {
     @Override
     public ResponseEntity<Measurements> retrieveMeasurements(final String deviceId) {
         LOGGER.info("Retrieving all measurements for device '{}'", deviceId);
+
         final List<Measurement> measurements = service.getMeasurements()
                 .stream()
                 .map(this::toMeasurement)
                 .toList();
         final Measurements measurementsResult = new Measurements();
         measurementsResult.measurements(measurements);
+        LOGGER.info("AWO 000000000000000 classic log");
+        LOGGER.info("logging a size of retrieveMeasurements '{}'", measurements.size());
         return ResponseEntity.ok(measurementsResult);
     }
 
