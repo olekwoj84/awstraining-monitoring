@@ -8,9 +8,9 @@ output "account_id" {
 
 output "availability_zones" {
   value = [
-    "eu-central-1a",
-    "eu-central-1b",
-    "eu-central-1c"
+    "eu-north-1a",
+    "eu-north-1b",
+    "eu-north-1c"
   ]
 }
 
@@ -21,13 +21,13 @@ output "backend_service_deployment_desired_task_count" {
 
 output "endpoints" {
   value = {
-    "ssm": "com.amazonaws.eu-central-1",
-    "logs": "com.amazonaws.eu-central-1",
-    "ecr.api": "com.amazonaws.eu-central-1",
-    "ecr.dkr": "com.amazonaws.eu-central-1",
-    "sts": "com.amazonaws.eu-central-1",
-    "secretsmanager": "com.amazonaws.eu-central-1",
-    "sts": "com.amazonaws.eu-central-1",
-    "ecs": "com.amazonaws.eu-central-1"
+    "ssm": "com.amazonaws.eu-north-1",
+    "logs": "com.amazonaws.eu-north-1",
+    "ecr.api": "com.amazonaws.eu-north-1",
+    "ecr.dkr": "com.amazonaws.eu-north-1",
+    "sts": "com.amazonaws.eu-north-1",
+    "secretsmanager": "com.amazonaws.eu-north-1",
+    "sts": "com.amazonaws.eu-north-1",
+    "ecs": "com.amazonaws.eu-north-1"
   }
 }
